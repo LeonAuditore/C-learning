@@ -1,48 +1,23 @@
-#include<iostream>
-#include<math.h>
-
-using namespace std;
-
+#include <stdio.h>
+#include <math.h>
 int main()
 {
-	int n,i,j;
-
-	cin>>n;
-
-	double **p=new double*[n]; 
-
-	for(i=0;i<n;i++)
+	int a,b,n,i;
+	float x,y,sum=0,c,d;
+	scanf("%d",&n);
+	
+	for (i=0;i<n;i++)
 	{
-		if(i>=6){j=i;p[i]=new double[j];}
-		else p[i]=new double[5];
+		scanf("%f %f %d",&x,&y,&a);
+		c=sqrt(x*x+y*y);
+		d=c/50.0;
+		sum=sum+1.5*a+d*2;
 	}
-
-	for(i=0;i<n;i++)
+	b=sum;
+	if(sum-b>0)
 	{
-		for(j=0;j<3;j++)
-		{
-			cin>>p[i][j];
-		}
+		b++;
 	}
-	for(i=0;i<n;i++)
-	{
-		p[i][3]=sqrt(p[i][0]*p[i][0]+p[i][1]*p[i][1]);
-	}
-
-	for(i=0;i<n;i++)
-	{
-		p[i][4]=1.0*p[i][3]/50;
-	}
-
-	for(i=0;i<n;i++)
-	{
-		p[i][5]=p[i][2]*1.5+p[i][4];
-	}
-
-	for(i=0;i<n;i++)
-	{
-		cout<<p[i][5];
-	}
-
+	printf("%d\n",b);
 	return 0;
 }
